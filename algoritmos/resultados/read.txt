@@ -1,0 +1,35 @@
+Nombre                  Frecuencias o combinación   Algoritmo   Intervalo_Obs Umbral
+
+saltos_geo_Gra.csv      combinación geometría       alg_geo     1 segundo       3 σ
+
+saltos_geo_Gra2.csv      combinación geometría       alg_geo     1 segundo      media + σ
+
+saltos_io_Gra.csv       combinación ionosfera       alg_io      1 segundo       3 σ
+
+saltos_io_Gra2.csv       combinación ionosfera       alg_io      1 segundo       media + σ
+
+saltos_geo_Vigo.csv     combinación geometría       alg_geo     30 segundos     3 σ
+
+saltos_io_Vigo.csv      combinación ionosfera       alg_io      30 segundos     3 σ
+
+saltos_l1_MAD30.csv     L1                          alg_reg     30 segundos     3 σ
+
+saltos_l1_MAD1.csv     L1                          alg_reg      1 segundos     3 σ
+
+saltos_geo_MAD30.csv    combinación geometría       alg_reg     30 segundos     3 σ
+
+saltos_geo_MAD1       combinación geometría       alg_reg       1 segundo       3 σ 
+
+saltos_geo_MAD12       combinación geometría       alg_reg      1 segunfo       3σ  paso 20
+
+saltos_geo_MAD120       combinación geometría       alg_reg     1 segundo       media +2 σ 10
+
+saltos_geo_MAD1202       combinación geometría     alg_reg     1 segunfo       media + 2σ paso20
+
+salto_fil_TERU1.csv		        L1	                    filtro	30 segundos           2MAD              "saltos"
+
+salto_fil_TERU2.csv		        L1		         filtro               30 segundos                2σ  	"saltos"
+
+salto_fil_TERU3.csv		L1		                  filtro              30 segundos                2MAD   	"continua"
+
+salto_fil_TERU4.csv		L1		                  filtro              30 segundos                2σ	   "continua" 
