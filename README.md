@@ -17,15 +17,15 @@ __Observación__: los algoritmos siguen la misma estructura
 3. Funciones auxiliares.
 
 ### Veamos los algoritmos utilizados
-	* Algoritmos basados en un ajuste polinomial: `combinacion_libre_geo.py`,  `combinacion_libre_geo2.py`,  `combinacion_libre_io.py`,  `combinacion_geo_iono.py`.
+	*Algoritmos basados en un ajuste polinomial: "combinacion_libre_geo.py",  "combinacion_libre_geo2.py",  "combinacion_libre_io.py",  "combinacion_geo_iono.py".
 		
-	* Algoritmo basado en clustering: `clustering.py`.
+	*Algoritmo basado en clustering: "clustering.py".
 
-	* Algoritmo basado en el filtro promedio: `filtropromedio.py`.
+	*Algoritmo basado en el filtro promedio: "filtropromedio.py".
 
-	* Algoritmo basado en regresión lineal: `regresion.py`.
+	*Algoritmo basado en regresión lineal: "regresion.py".
 
-	* Algoritmo para verificar la existencia de un salto de ciclo `contraste.py`. 
+	*Algoritmo para verificar la existencia de un salto de ciclo "contraste.py". 
 
 Además contiene el script `aplicacion.py` que sirve para ejecutar una aplicación de escritorio para utilizar los Algoritmos previos de forma interactiva.
  `read.txt` aporta información sobre el uso de la aplicación.
