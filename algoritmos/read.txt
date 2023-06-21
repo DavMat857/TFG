@@ -1,19 +1,19 @@
 El objetivo de este script es ofrecer una leyenda de los elementos a elegir para cada algoritmo
 
-Para los algoritmos libre geo e io:
+Hay unos elementos comunes a elegir que son:
 
-datos | paso | multiplo | tiempo
+Archivos | Satélites | Algoritmos | Frecuencias | Paso |Tiempo
 
-Para el algoritmo de regresión:
 
-datos | paso | tiempo
+Para el algoritmo de alg_reg y alg_clus no hace falta seleccionar nada más.
 
-Para el algoritmo basado en filtro promedio:
 
-seleccion | datos | paso | multiplo | tiempo
+Para los algoritmos alg_geo y alg_io además hay que seleccionar:
+
+multiplo 
+
+Para el algoritmo basado en filtro promedio además hay que seleccionar:
+
+seleccion | multiplo
 
     Observación: seleccion = "MAD"(0) ofrece umbral basado en MAD, seleccion = "sigma"(1) ofrece umbral basado en σ
-
-Para el algoritmo basado en clustering:
-
-datos | paso | tiempo
