@@ -172,7 +172,7 @@ def brecha(tiempos : list) -> list:
 
 
 
-def satelites(filename : str ) -> list:
+def Satelites(filename : str ) -> list:
 
     datos = all_information2(filename)
     cjto = set()
@@ -188,7 +188,7 @@ def satelites(filename : str ) -> list:
 
 #tiempo marca la diferencia entre cada observación por defecto será 1
 def graficar_frec(filename : str, frec : int,tiempo = 1) -> None:#Se puede optimizar bastante aunque no es determinante en este caso
-    sats = satelites(filename)
+    sats = Satelites(filename)
     
     for i in sats:
         datos = unafrecuencia(filename,frec, i)
