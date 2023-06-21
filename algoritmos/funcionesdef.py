@@ -141,7 +141,7 @@ def f1menosf2(f1 : dict ,f2: dict) -> dict:
                 F[i] = f1[i] - f2[i]
     return F
 
-def combinacion_libre_ios(l1, l2):
+def combinacion_libre_ios(l1: dict, l2: dict) -> dict:
     
     D = {}
     
@@ -185,6 +185,8 @@ def Satelites(filename : str ) -> list:
         if j[0] == 'G':
             lista.append(j)
     return lista
+
+################ Función auxiliares para la visualización gráfica
 
 #tiempo marca la diferencia entre cada observación por defecto será 1
 def graficar_frec(filename : str, frec : int,tiempo = 1) -> None:#Se puede optimizar bastante aunque no es determinante en este caso

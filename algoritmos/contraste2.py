@@ -4,7 +4,7 @@ from sklearn.linear_model import LinearRegression
 from scipy.stats import t
 import scipy.stats as stats
 import numpy as np
-# Este script esta adaptado para la regresión
+# Este script esta adaptado para la regresión, para otro caso simplemente habría que importar la función algoritmo
 
 #Datos a utilizar
 filename = "datos/GRA1065Q00.23O"
@@ -54,16 +54,12 @@ def comprobacion2( datos=datos, paso=paso, lista_saltos = lista_saltos, tiempo =
 def residuos(data):
     data = np.array(data)
     
-    #Definir el valor x crear 0 ,1 , 2 , ... nº observaciones
     x = np.arange(data.size).reshape((-1, 1))
     
-    #Ajustar un modelo de regresióno para los datos
     model = LinearRegression().fit(x, data)
     
-    #Calcular los residuos
     residuals = data - model.predict(x) 
     
-    #Si lo quisiera en valor absoluto 
     residuals = np.abs( data - model.predict(x))
     return residuals
   
@@ -83,10 +79,7 @@ def t_student(data_before, data_after):
     p = 1 - stats.t.cdf(t, n_before+n_after-2)
    
 
-    if p<0.05:
-    #    print("Hay un salto de ciclo")
-        return True
-    else:
-    #    print("No hay nada")
-        return False
+    if p<0.05: return True
+    
+    else: return False
     

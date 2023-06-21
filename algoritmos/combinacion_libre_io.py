@@ -11,17 +11,13 @@ l2 = L2(filename, sat)
 io = combinacion_libre_ios(l1,l2)
 numero_muestras = 10
 
-#Visualización 
-def visualizacion():
-    graficar_frec(filename,3)
-
 
 #Algoritmo
 
 def algoritmo(datos = io, numero_muestras = numero_muestras,multiplo = 3, tiempo=1):
     
     graf_datos(datos, "Algoritmo_ionosfera",tiempo)
-    media,std = selector_umbral(datos,numero_muestras)
+    media,std = selector_umbral(datos,numero_muestras) #Calculamos la media por si la quisieramos introducir en el umbral
     umbral =multiplo*std
     resultados = alg_sacar_saltos(datos,numero_muestras,umbral*multiplo)
     resultados = list(map(lambda x: x*tiempo, resultados))
@@ -47,10 +43,8 @@ def selector_umbral(datos : dict,numero_muestras):
         pol = [p(n) for n in claves]
         
        
-        if claves[len(claves)-1]- claves[0] > 30:
-          print(f"Salto de ciclo entre {claves[0]} y {claves[len(claves)-1]} por brecha de datos")
-          
-        else:
+        if claves[len(claves)-1]- claves[0] <= 30:
+            
             valor_real = np.array(valores)
             valor_pol = np.array(pol)
             error = np.abs(valor_real - valor_pol)

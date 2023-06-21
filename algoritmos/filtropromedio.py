@@ -21,7 +21,6 @@ def algoritmo(seleccion = 0, datos= datos, window_size = 10, multiplo = 2 , tiem
     
     moving_average = np.convolve(valores, np.ones(window_size)/window_size, mode='valid')
     
-    #for i in range(0,len(claves)-window_size,1):
     while i + window_size< len(moving_average):
         
         if i + window_size < len(moving_average):

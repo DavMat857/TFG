@@ -2,7 +2,7 @@
 from funcionesdef import*
 import numpy as np
 
-#Método 1 tuve que cambiar el umbral porque duplicada la cantidad de saltos
+#Método 1 del TFG
 
 #Datos a utilizar
 filename = "datos/MAD1047A00.23O"
@@ -12,10 +12,6 @@ l1 = L1(filename, sat)
 l2 = L2(filename, sat)
 geo = f1menosf2(l1,l2)
 numero_muestras = 10
-
-#Visualización
-def visualizacion():
-    graficar_frec(filename,3)
     
 
 #Algoritmo
@@ -29,17 +25,14 @@ def algoritmo(datos = geo,numero_muestras=numero_muestras,multiplo=1, tiempo = 3
 
 #Funciones auxiliares
 
-"""Introduces datos, numero de muestras por paso y el umbral"""
 def alg_sacar_saltos(datos,numero_muestras,multiplo): 
     saltos = []
     i = 1
     
     claves = [int(i) for i in list(datos.keys())]
     valores = list(datos.values())
-    #Primer polinomio
     pol, umbral= crear_pol(claves[0:numero_muestras],valores[0:numero_muestras])
     while i<len(datos) - numero_muestras :
-    #for i in range(0,len(datos),numero_muestras):
         
         if claves[i]- claves[i-1] > 30:
           saltos.append(claves[i])
@@ -76,6 +69,7 @@ def crear_pol(claves,valores):
     valor_real = np.array(valores)
     valor_pol = np.array(pol)
     error = np.abs(valor_real - valor_pol)
+    # Hay dos posibles umbrales a utilizar
     umbral = np.mean(error) + np.std(error)
     #umbral = 3*np.std(error)
   

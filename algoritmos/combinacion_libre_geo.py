@@ -1,7 +1,6 @@
 import numpy as np
 from funcionesdef import*
 
-#Primero umbral y después pol metodo2
 
 #Datos a utilizar
 filename = "datos/MAD1047A00.23O"
@@ -11,20 +10,15 @@ l1 = L1(filename, sat)
 l2 = L2(filename, sat)
 geo = f1menosf2(l1,l2)#L1-L2
 numero_muestras = 10
-
-#Visualización de L1 para cada satélite para L2, poner 4 en vez de 3
-def visualizacion():
-    graficar_frec(filename,3)
     
 
 #Algoritmo
-
 def algoritmo(datos = geo,numero_muestras=numero_muestras,multiplo=3, tiempo=30):
      
     graf_datos(datos, "Algoritmo_geometria",tiempo)
-    media,std = selector_umbral(datos,numero_muestras)
-    #umbral = media + std
+    media,std = selector_umbral(datos,numero_muestras)#calculamos la media por si fuera necesaria en el umbral
     umbral = std * multiplo
+
     resultados = alg_sacar_saltos(datos,numero_muestras,umbral)
     resultados = [i for i in resultados if i!=0]
     resultados = list(map(lambda x: x*tiempo,resultados))
@@ -50,10 +44,8 @@ def selector_umbral(datos : dict,numero_muestras):
         pol = [p(n) for n in claves]
         
        
-        if claves[len(claves)-1]- claves[0] > 30:
-          #print(f"Salto de ciclo entre {claves[0]} y {claves[len(claves)-1]} por brecha de datos")
-          pass
-        else:
+        if claves[len(claves)-1]- claves[0] <= 30:
+          
             valor_real = np.array(valores)
             valor_pol = np.array(pol)
             error = np.abs(valor_real - valor_pol)
@@ -82,6 +74,7 @@ def alg_sacar_saltos(datos,numero_muestras,umbral):
         
         if claves[len(claves)-1]- claves[0] > 30:
           saltos.append(claves[0])
+          
         else:
             valor_real = np.array(valores)
             valor_pol = np.array(pol)

@@ -15,10 +15,8 @@ io = combinacion_libre_ios(l1,l2)
 numero_muestras = 10
    
 #Algoritmo
-def algoritmo(io=io,geo=geo,numero_muestras=numero_muestras, tiempo = 1) :# umbral y nº de observaciones
-  #Creación de listas donde almacenar resultados
+def algoritmo(io=io,geo=geo,numero_muestras=numero_muestras, tiempo = 1) :
     graf_datos(geo,"combinacion libre de geometria", tiempo)
-    saltos_comunes = []
     duda_geo = []
     duda_ion = []
     

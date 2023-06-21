@@ -10,9 +10,6 @@ sat = 'G24'
 datos= L1(filename,sat)
 datos_por_paso = 35
 
-#Visualización de L1 para cada satélite
-def visualización(filename = filename, tiempo=30):
-    graficar_frec(filename, 4,tiempo)
 
 #Algoritmo
 def algoritmo(datos=datos,datos_por_paso=datos_por_paso,tiempo=30): 
@@ -111,44 +108,4 @@ def grafica_DBSCAN(frec ,n ,eps,rango_min,rango_max,tiempo):
         plt.title('Estimated number of DBSCAN clusters: %d' % (len(unique_labels - {-1})))
         plt.show()
     
-    else:
-        pass
-
-###################################
- #Si DESARROLLO OPTICS   Meter de mezcla.py lo de las distancais
-from sklearn.cluster import OPTICS
-def algpri(datos,paso):
-    #v = list(datos.values())
-    k = list(datos.keys())
-    for i in range(k[0],k[-1],35):
-        primero([datos[i] for i in range(i,i+paso,1) if i in datos.keys()], [i for i in range(i,i+paso,1) if i in datos.keys()])
-        
-def primero(v,d):
-    if len(v)>1:
-        tiempos = np.array(d)
-        valores = np.array(v)
-        
-        # Preparar los datos para OPTICS
-        X = np.column_stack((tiempos, valores))
-        
-       
-        # Crear y ajustar el modelo OPTICS
-        optics = OPTICS(max_eps=np.mean(v)+2*np.std(v), min_samples=3, metric='euclidean')
-        optics.fit(X)
-        
-        # Obtener las etiquetas de los clusters
-        labels = optics.labels_
-        
-        # Imprimir los resultados
-        print("Etiquetas de los clusters:")
-        print(labels)
-        
-        
-        # Graficar los datos y los clusters
-        plt.scatter(X[:, 0], X[:, 1], c=labels, cmap='viridis')
-        plt.xlabel('Tiempo')
-        plt.ylabel('Valor')
-        plt.title('Clustering con OPTICS')
-        plt.colorbar()
-        plt.show()
     
