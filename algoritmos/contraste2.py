@@ -4,6 +4,7 @@ from sklearn.linear_model import LinearRegression
 from scipy.stats import t
 import scipy.stats as stats
 import numpy as np
+# Este script esta adaptado para la regresión
 
 #Datos a utilizar
 filename = "datos/GRA1065Q00.23O"
@@ -15,7 +16,7 @@ paso = 20
 tiempo = 1
 lista_saltos = al_reg(datos,10,tiempo)
 
-#Algoritmo de comprobación
+#Algoritmo de comprobación para residuos
 def comprobacion( datos=datos, paso=paso, lista_saltos = lista_saltos, tiempo = tiempo):
     
     saltos_comprobacion = [] #Lista de bool
@@ -24,6 +25,23 @@ def comprobacion( datos=datos, paso=paso, lista_saltos = lista_saltos, tiempo = 
             
             data_before = residuos([datos[i] for i in range(i-paso*tiempo,i,tiempo) if i in datos.keys()])
             data_after = residuos([datos[i] for i in range(i,i+tiempo*paso,tiempo) if i in datos.keys()])
+            saltos_comprobacion.append(t_student(data_before,data_after))
+            
+        except:
+            KeyError
+            print("ERROR")
+            saltos_comprobacion.append(False)
+    return saltos_comprobacion
+
+#Algoritmo de comrpobacion para datos
+def comprobacion2( datos=datos, paso=paso, lista_saltos = lista_saltos, tiempo = tiempo):
+    
+    saltos_comprobacion = [] #Lista de bool
+    for i in lista_saltos:
+        try:
+            
+            data_before = [datos[i] for i in range(i-paso*tiempo,i,tiempo) if i in datos.keys()]
+            data_after = [datos[i] for i in range(i,i+tiempo*paso,tiempo) if i in datos.keys()]
             saltos_comprobacion.append(t_student(data_before,data_after))
             
         except:
