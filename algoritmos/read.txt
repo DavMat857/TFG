@@ -1,0 +1,19 @@
+El objetivo de este script es ofrecer una leyenda de los elementos a elegir para cada algoritmo
+
+Para los algoritmos libre geo e io:
+
+datos | paso | multiplo | tiempo
+
+Para el algoritmo de regresión:
+
+datos | paso | tiempo
+
+Para el algoritmo basado en filtro promedio:
+
+seleccion | datos | paso | multiplo | tiempo
+
+    Observación: seleccion = "MAD"(0) ofrece umbral basado en MAD, seleccion = "sigma"(1) ofrece umbral basado en σ
+
+Para el algoritmo basado en clustering:
+
+datos | paso | tiempo
