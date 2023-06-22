@@ -8,7 +8,7 @@ Created on Thu Jun 22 16:27:55 2023
 import numpy as np
 from funcionesdef import*
 
-#Primero umbral y después pol metodo2
+#Método 1
 
 #Datos a utilizar
 filename = "datos/MAD1047A00.23O"
