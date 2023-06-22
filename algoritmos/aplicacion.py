@@ -5,8 +5,8 @@ import os
 import tkinter as tk
 from tkinter import filedialog, messagebox, scrolledtext
 
-from combinacion_libre_geo import algoritmo as alg_geo
-from combinacion_libre_io import algoritmo as alg_io
+from polinomio import algoritmo as polinomio1
+from polinomio2 import algoritmo as polinomio2
 from clustering import algoritmo as alg_clus
 from regresion2 import algoritmo as alg_reg
 from filtropromedio import algoritmo as alg_fil
@@ -21,7 +21,7 @@ archivos = [
     if archivo.endswith("O") and os.path.isfile(os.path.join(carpeta_datos, archivo))
 ]
 archivo_historial = "historial.txt"
-Algoritmos = ['alg_geo', 'alg_io', 'alg_clus', 'alg_fil', 'alg_reg']
+Algoritmos = ['polinomio1', 'polinomio2', 'alg_clus', 'alg_fil', 'alg_reg']
 Frecuencias = ['L1', 'L2', 'f1menosf2', 'combinacion_libre_ios']
 Pasos = list(range(10, 20))
 Multiplos = list(range(1, 5))
