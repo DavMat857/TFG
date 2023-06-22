@@ -32,11 +32,11 @@ Además contiene el script `aplicacion.py` que sirve para ejecutar una aplicaci�
 
 	
 
-	## Datos
+## Datos
 
 Contiene información sobre los archivos Rinex, además en `read.txt` tenemos información adicional sobre cada archivo
 
-	## Resultados
+## Resultados
 	
 Contiene información acerca de las pruebas utilizadas y dos scripts: `resultados.py` con este script se han obtenido los .csv y `graficar_resultados.py` que permite graficar los .csv
 
