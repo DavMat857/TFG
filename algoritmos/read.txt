@@ -15,4 +15,4 @@ Para el algoritmo basado en filtro promedio además hay que seleccionar:
 
 seleccion | multiplo
 
-    Observación: seleccion = "MAD"(0) ofrece umbral basado en MAD, seleccion = "sigma"(1) ofrece umbral basado en σ
+    Observación: seleccion = "MAD"(0) ofrece umbral basado en MAD, seleccion = "sigma"(1) ofrece umbral basado en sigma

@@ -17,13 +17,7 @@ datos = all_information2(filename)
 l1 = L1(filename, sat)
 numero_muestras = 10
 
-#Visualización de L1 para cada satélite para L2, poner 4 en vez de 3
-def visualizacion():
-    graficar_frec(filename,3)
-    
-
 #Algoritmo
-
 def algoritmo(datos = l1,numero_muestras=numero_muestras,multiplo=3, tiempo=30):
      
     graf_datos(datos, "Algoritmo_geometria",tiempo)
