@@ -1,9 +1,3 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jun 22 16:27:55 2023
-
-@author: David
-"""
 
 import numpy as np
 from funcionesdef import*
