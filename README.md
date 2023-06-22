@@ -17,7 +17,7 @@ __Observación__: los algoritmos siguen la misma estructura
 3. Funciones auxiliares.
 
 ### Veamos los algoritmos utilizados
-	*Algoritmos basados en un ajuste polinomial: "combinacion_libre_geo.py",  "combinacion_libre_geo2.py",  "combinacion_libre_io.py",  "combinacion_geo_iono.py".
+	*Algoritmos basados en un ajuste polinomial: "polinomio.py" , "polinomio2.py", el resto son particularizaciones de estos dos: "combinacion_libre_geo.py",  "combinacion_libre_geo2.py",  "combinacion_libre_io.py",  "combinacion_geo_iono.py".
 		
 	*Algoritmo basado en clustering: "clustering.py".
 
