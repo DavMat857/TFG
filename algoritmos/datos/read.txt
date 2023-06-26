@@ -1,6 +1,6 @@
 #Este documento presenta la siguiente estructura:
 
-#Fecha     | Estación | Intervalo observación 
+#Fecha     | Estación   | Intervalo observación 
 ####MAD1047A00.23O
 16/02/2023 |    MAD1    |       30s
 
