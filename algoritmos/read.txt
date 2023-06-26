@@ -7,7 +7,7 @@ Archivos | Satélites | Algoritmos | Frecuencias | Paso |Tiempo
 
 Para el algoritmo de alg_reg y alg_clus no hace falta seleccionar nada más.
 
-Para los algoritmos alg_geo y alg_io además hay que seleccionar:
+Para los algoritmos polinomio1, polinomio2 además hay que seleccionar:
 
 multiplo 
 
