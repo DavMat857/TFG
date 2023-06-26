@@ -1,34 +1,32 @@
 >>>>>>>ALGORITMO POLINOMIAL
 
-Nombre                  Frecuencias o combinación   Algoritmo   Intervalo_Obs Umbral
+Nombre                  Frecuencias o combinación   Algoritmo   Intervalo_Obs   Umbral
 
-saltos_l22_MAD1.csv          L2                          alg_pol     1 segundo      2 sigma
+saltos_l22_MAD1.csv          L2                     alg_pol      1 segundo       2 σ
 
-saltos_l23_MAD1.csv          L2                          alg_pol     1 segundo      3 sigma
+saltos_l23_MAD1.csv          L2                     alg_pol      1 segundo       3 σ
 
-saltos_l22_2MAD1.csv          L2                         alg_pol2     1 segundo      2 sigma
+saltos_l22_2MAD1.csv         L2                     alg_pol2     1 segundo       2 σ
 
-saltos_l23_2MAD1.csv          L2                         alg_pol2     1 segundo      3 sigma
+saltos_l23_2MAD1.csv         L2                     alg_pol2     1 segundo       3 σ
 
-ELIMINARsaltos_l220_2MAD1.csv          L2                         alg_pol2     1 segundo     20 sigma
+saltos_l211_2MAD1.csv        L2                     alg_pol2     1 segundo       media + σ
 
-saltos_l211_2MAD1.csv          L2                         alg_pol2     1 segundo      x + sigma
+saltos_l212_2MAD1.csv        L2                     alg_pol2     1 segundo       media + 2 σ
 
-saltos_l212_2MAD1.csv              L2                                                     x + 2 sigma
+saltos_l213_2MAD1.csv        L2                     alg_pol2     1 segundo       media + 3 σ
 
-saltos_l213_2MAD1.csv              L2                                                     x + 3 sigma
+saltos_geo_Gra.csv      combinación geometría       alg_pol      1 segundo       3σ
 
-saltos_geo_Gra.csv      combinación geometría       alg_pol     1 segundo       3σ
+saltos_geo_Gra2.csv      combinación geometría      alg_pol      1 segundo       media + σ
 
-saltos_geo_Gra2.csv      combinación geometría      alg_pol     1 segundo      media + σ
+saltos_io_Gra.csv       combinación ionosfera       alg_pol      1 segundo       3 σ
 
-saltos_io_Gra.csv       combinación ionosfera       alg_pol     1 segundo       3 σ
+saltos_io_Gra2.csv       combinación ionosfera      alg_pol      1 segundo       media + σ
 
-saltos_io_Gra2.csv       combinación ionosfera      alg_pol     1 segundo       media + σ
+saltos_geo_Vigo.csv     combinación geometría       alg_pol      30 segundos     3σ
 
-saltos_geo_Vigo.csv     combinación geometría       alg_pol     30 segundos     3σ
-
-saltos_io_Vigo.csv      combinación ionosfera       alg_pol     30 segundos     3σ
+saltos_io_Vigo.csv      combinación ionosfera       alg_pol      30 segundos     3σ
 
 >>>>>>>ALGORITMO REGRESIÓN
 
@@ -53,32 +51,32 @@ saltos_reg_Teru2        combinación geometria       alg_reg     30 segundos    
 
 >>>>>>>ALGORITMO CLUSTERING
 
-saltos_clustering_Teru1    L2                      alg_clus    30 segundos     s+(7/4)σ
+saltos_clustering_Teru1    L2                       alg_clus    30 segundos     s+(7/4)σ
 
-saltos_clustering_Teru2    L2                      alg_clus    30 segundos     s+2σ
+saltos_clustering_Teru2    L2                       alg_clus    30 segundos     s+2σ
 
-saltos_clustering_Gra1     L2                      alg_clus    1 segundos      s+(7/4)σ
+saltos_clustering_Gra1     L2                       alg_clus    1 segundos      s+(7/4)σ
 
-saltos_clustering_Gra2     L2                      alg_clus    1 segundos      s+2sσ
+saltos_clustering_Gra2     L2                       alg_clus    1 segundos      s+2sσ
 
 
 >>>>>>>ALGORITMO FILTRO(Como "función continua" 'G26' y como "función a trozos" G19)
 
-salto_fil_TERU1.csv		    L1	                 filtro	    30 segundos     2MAD             "a trozos"
+salto_fil_TERU1.csv		    L1	                    filtro	    30 segundos     2MAD         "a trozos"
 
-salto_fil_TERU2.csv		    L1       		     filtro       30 segundos     2σ             "a trozos"
+salto_fil_TERU2.csv		    L1       		        filtro      30 segundos     2σ           "a trozos"
 
-salto_fil_TERU3.csv		    L1		             filtro       30 segundos     2MAD   	     "continua"
+salto_fil_TERU3.csv		    L1		                filtro      30 segundos     2MAD   	     "continua"
 
-salto_fil_TERU4.csv		    L1		             filtro       30 segundos     2σ             "continua" 
+salto_fil_TERU4.csv		    L1		                filtro      30 segundos     2σ           "continua" 
 
-salto_fil_TERU1MAD.csv      L1                   alg_fil     30 segundos     MAD             "a trozos"
+salto_fil_TERU1MAD.csv      L1                      alg_fil     30 segundos     MAD          "a trozos"
 
-salto_fil_TERU13MAD.csv     L1                   alg_fil     30 segundos     3MAD            "a trozos"
+salto_fil_TERU13MAD.csv     L1                      alg_fil     30 segundos     3MAD         "a trozos"
 
-salto_fil_TERU1sigma.csv    L1                   alg_fil     30 segundos     sigma           "a trozos"
+salto_fil_TERU1sigma.csv    L1                      alg_fil     30 segundos     sigma        "a trozos"
 
-salto_fil_TERU13sigma.csv   L1                   alg_fil     30 segundos     3sigma           "a trozos"
+salto_fil_TERU13sigma.csv   L1                      alg_fil     30 segundos     3sigma       "a trozos"
 
 saltos_fil_GRAM32.csv       L1                   alg_fil     30 segundos     (3/2)sigma           
 
