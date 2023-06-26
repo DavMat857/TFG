@@ -128,7 +128,7 @@ def obtener_elemento_seleccionado():
     if seleccion == None: seleccion = ""
     if multiplo == None: multiplo = "Predeterminado"
     
-    texto_historial = f"\n{archivo} __{seleccion}__ {algoritmo} __ {satelite} __ {frecuencia} __ {multiplo} __ {paso}\n{resultado}\n"
+    texto_historial = f"\nSaltos en total: {len(resultado)}\n{archivo} __{seleccion}__ {algoritmo} __ {satelite} __ {frecuencia} __ {multiplo} __ {paso}\n{resultado}\n"
     generar_historial(texto_historial)
     mostrar_resultados(resultado)
 
@@ -140,6 +140,13 @@ def ver_historial():
     except IOError:
         messagebox.showerror("Error", "No se pudo leer el archivo del historial.")
 
+
+def borrar_historial():
+    try:
+        os.remove(archivo_historial)
+        messagebox.showinfo("Historial borrado", "El historial se ha borrado exitosamente.")
+    except FileNotFoundError:
+        messagebox.showwarning("Historial no encontrado", "No se encontró el archivo del historial.")
 
 # Crear ventana principal
 ventana = tk.Tk()
@@ -154,7 +161,7 @@ frame_guia1.pack(side=tk.LEFT, fill=tk.BOTH, expand=True)
 frame_guia2 = tk.Frame(contenedor_principal)
 frame_guia2.pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
 
-label_guia1 = tk.Label(frame_guia1, text="Instrucciones de guía 1:")
+label_guia1 = tk.Label(frame_guia1, text="Instrucciones de guía sobre los datos:")
 label_guia1.pack()
 
 informacion1 = leer_contenido_archivo("datos/read.txt")
@@ -164,7 +171,7 @@ texto_guia1.pack(fill=tk.BOTH, expand=True)
 texto_guia1.insert(tk.INSERT, informacion1)
 texto_guia1.configure(state='disabled')
 
-label_guia2 = tk.Label(frame_guia2, text="Instrucciones de guía 2:")
+label_guia2 = tk.Label(frame_guia2, text="Instrucciones de guía sobre el programa:")
 label_guia2.pack()
 
 informacion2 = leer_contenido_archivo("read.txt")
@@ -193,4 +200,6 @@ boton_salir.pack(side=tk.BOTTOM, anchor=tk.SE)  # Anchor se establece como SE (s
 boton_ver_historial = tk.Button(contenedor_principal, text="Ver Historial", command=ver_historial)
 boton_ver_historial.pack(side=tk.BOTTOM, anchor=tk.SW)  # Anchor se establece como SW (suroeste)
 
+boton_borrar_historial = tk.Button(contenedor_principal, text="Borrar Historial", command=borrar_historial)
+boton_borrar_historial.pack(side=tk.BOTTOM, anchor=tk.SW)  # Anchor se establece como SW (suroeste)
 ventana.mainloop()
