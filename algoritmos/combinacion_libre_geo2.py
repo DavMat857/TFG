@@ -1,8 +1,5 @@
-
 from funcionesdef import*
 import numpy as np
-
-#Método 1 del TFG
 
 #Datos a utilizar
 filename = "datos/MAD1047A00.23O"
@@ -24,7 +21,6 @@ def algoritmo(datos = geo,numero_muestras=numero_muestras,multiplo=1, tiempo = 3
 
 
 #Funciones auxiliares
-
 def alg_sacar_saltos(datos,numero_muestras,multiplo): 
     saltos = []
     i = 1
@@ -55,8 +51,7 @@ def alg_sacar_saltos(datos,numero_muestras,multiplo):
                 i=i+1            
     return np.array(saltos)
 
-#Creación de un polinomio
-    
+#Creación de un polinomio    
 def crear_pol(claves,valores):
     
     degree = 2

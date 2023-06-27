@@ -87,4 +87,3 @@ def alg_sacar_saltos(datos,numero_muestras,umbral):
                      saltos.append(0)
                      
     return np.array(saltos)
-

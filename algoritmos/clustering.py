@@ -10,10 +10,6 @@ sat = 'G24'
 datos= L1(filename,sat)
 datos_por_paso = 50
 
-#Visualización de L1 para cada satélite
-def visualización(filename = filename, tiempo=30):
-    graficar_frec(filename, 4,tiempo)
-
 #Algoritmo
 def algoritmo(datos=datos,datos_por_paso=datos_por_paso,tiempo=30): 
     saltos = []
@@ -24,7 +20,6 @@ def algoritmo(datos=datos,datos_por_paso=datos_por_paso,tiempo=30):
     return sorted(saltos)
 
 #Funciones auxiliares
-
 def DBS(frec ,rango_min,rango_max,tiempo):
     saltos = []
     valores = seleccion_umbral(frec,rango_min,rango_max,tiempo) #valores[0] me da el eps y valores[1] me da std
@@ -48,11 +43,9 @@ def seleccion_umbral(frec,rango_min,rango_max,tiempo,n=3):
         std = np.std(phase_diff)
         
         phase_diff_abs = [abs(i) for i in phase_diff]
-        
         eps1 = seleccion_eps(infor,n,min(phase_diff_abs), max(phase_diff_abs))
         return eps1, std
-    else:
-        print("SALTO DE CICLO")
+
         
 
 def seleccion_eps(datos ,n, minimo,maximo):
@@ -96,6 +89,7 @@ def grafica_DBSCAN(frec ,n ,eps,rango_min,rango_max,tiempo):
             if contador %2 == 0:
                 saltos.append( int(infor[list(reversed(list(labels))).index(i)][0]))
                 contador +=1
+    #Si queremos las gráficas descomentar
 #            else:
 #                
 #                saltos.append( int(infor[list(labels).index(i)][0]))
@@ -124,42 +118,4 @@ def grafica_DBSCAN(frec ,n ,eps,rango_min,rango_max,tiempo):
     else:
         pass
     return saltos
-
-###################################
- #Si DESARROLLO OPTICS   Meter de mezcla.py lo de las distancais
-from sklearn.cluster import OPTICS
-def algpri(datos,paso):
-    #v = list(datos.values())
-    k = list(datos.keys())
-    for i in range(k[0],k[-1],35):
-        primero([datos[i] for i in range(i,i+paso,1) if i in datos.keys()], [i for i in range(i,i+paso,1) if i in datos.keys()])
-        
-def primero(v,d):
-    if len(v)>1:
-        tiempos = np.array(d)
-        valores = np.array(v)
-        
-        # Preparar los datos para OPTICS
-        X = np.column_stack((tiempos, valores))
-        
-       
-        # Crear y ajustar el modelo OPTICS
-        optics = OPTICS(max_eps=np.mean(v)+2*np.std(v), min_samples=3, metric='euclidean')
-        optics.fit(X)
-        
-        # Obtener las etiquetas de los clusters
-        labels = optics.labels_
-        
-        # Imprimir los resultados
-        print("Etiquetas de los clusters:")
-        print(labels)
-        
-        
-        # Graficar los datos y los clusters
-        plt.scatter(X[:, 0], X[:, 1], c=labels, cmap='viridis')
-        plt.xlabel('Tiempo')
-        plt.ylabel('Valor')
-        plt.title('Clustering con OPTICS')
-        plt.colorbar()
-        plt.show()
     

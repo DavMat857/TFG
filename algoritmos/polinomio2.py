@@ -32,7 +32,6 @@ def alg_sacar_saltos(datos,numero_muestras,multiplo):
     #Primer polinomio
     saltos += crear_pol(claves[0:numero_muestras],valores[0:numero_muestras])
     while i<len(datos) - numero_muestras :
-    #for i in range(0,len(datos),numero_muestras):
         
         if claves[i]- claves[i-1] > 30:
           saltos.append(claves[i])
@@ -75,7 +74,3 @@ def crear_pol(claves,valores):
             saltos.append(claves[i])
     
     return saltos
-
-
-
-

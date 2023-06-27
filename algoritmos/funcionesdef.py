@@ -64,7 +64,7 @@ def all_information2(filename : str) -> dict: #Lee el archivo Rinex y lo procesa
     f  = open(filename, 'r')
     lines = f.readlines()
     inicio = lines.index('                                                            END OF HEADER\n')
-    lines = lines[inicio+1:] # El inicio contiene información que no es necesaria
+    lines = lines[inicio+1:] #El inicio contiene información que no es necesaria
     lista = []
     indice_lista = 0
 

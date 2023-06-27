@@ -50,7 +50,6 @@ def algoritmo(seleccion = 0, datos= datos, window_size = 10, multiplo = 2 , tiem
     return saltos
 
 #Funciones auxiliares
-      
 def median_absolute_desviation(datos):
     mediana_datos = np.median(datos)
     restas = []

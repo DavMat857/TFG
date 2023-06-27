@@ -15,7 +15,7 @@ l2 = L2(filename, sat)
 datos = f1menosf2(l1,l2)
 paso = 10
 
-        
+#Algoritmo        
 def algoritmo(datos = datos , paso = paso,tiempo =1):
     graf_datos(datos,"Algoritmo_regresion",tiempo)
     
@@ -39,24 +39,20 @@ def algoritmo(datos = datos , paso = paso,tiempo =1):
     resultados = list(map(lambda x: x*tiempo, resultados))
     return resultados
 
-#funciones auxiliares
+#Funciones auxiliares
 def dosaux(data,claves): # graficar los residuos sin tener en cuenta el nº de observación
-    #definir un numpy array
    
     saltos = []
     b = False
     data = np.array(data)
     
-    #Definir el valor x crear 0 ,1 , 2 , ... nº observaciones
+    
     x = np.arange(data.size).reshape((-1, 1))
     
-    #Ajustar un modelo de regresióno para los datos
     model = LinearRegression().fit(x, data)
 
-    #Calcular los residuos
     residuals = data - model.predict(x) 
 
-    #Si lo quisiera en valor absoluto 
     residuals = np.abs( data - model.predict(x))
     media = np.mean((residuals))
     std = np.std(residuals)
@@ -66,8 +62,7 @@ def dosaux(data,claves): # graficar los residuos sin tener en cuenta el nº de o
     
     if True in condicion:
         b = True
-        #print(f"Salto de ciclo entre {claves[0]} y {claves[len(claves)-1]}")
-
+    
         for i in range(len(condicion)):
             if condicion[i]==True:
                 saltos.append(claves[i])

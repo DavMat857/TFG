@@ -13,7 +13,6 @@ numero_muestras = 10
 
 
 #Algoritmo
-
 def algoritmo(datos = io, numero_muestras = numero_muestras,multiplo = 3, tiempo=1):
     
     graf_datos(datos, "Algoritmo_ionosfera",tiempo)
