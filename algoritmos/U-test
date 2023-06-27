@@ -1,0 +1,105 @@
+import numpy as np
+import matplotlib.pyplot as plt
+from scipy.stats import mannwhitneyu
+from sklearn.linear_model import LinearRegression
+from funcionesdef import*
+from regresion2 import algoritmo as alg_reg
+from clustering import algoritmo as alg_clus
+
+
+#Datos a utilizar
+filename = "datos/TERU042A00.23O"
+sat = 'G24'
+datos= L1(filename,sat)
+paso = 20
+tiempo = 1
+lista_saltos = alg_reg(datos,20,1)
+
+#Algoritmo
+def comprobacion( datos = datos, paso= paso, lista_saltos= lista_saltos , tiempo=tiempo):
+    
+    saltos_comprobacion = [] #Lista de bool
+    for i in lista_saltos:
+        try:
+            
+            data_before = ([datos[i] for i in range(i-paso*tiempo,i,tiempo) if i in datos.keys()])
+            time_before = obtener_claves_por_valor(datos,data_before)
+            
+            data_after = ([datos[i] for i in range(i,i+tiempo*paso,tiempo) if i in datos.keys()])
+            time_after = obtener_claves_por_valor(datos,data_after)
+
+            aplicacion(time_before,data_before, time_after,data_after)
+        except:
+            KeyError
+            print("ERROR")
+            saltos_comprobacion.append(False)
+    return saltos_comprobacion
+
+#Funciones auxiliares
+def scatter_plot_grupos(datos1, datos2):
+    colores = {'A': 'red', 'B': 'blue'}  # Asignación de colores a las etiquetas de muestra
+    
+    plt.figure(figsize=(8, 4))
+    plt.scatter(datos1, np.repeat(0, len(datos1)), c=[colores['A']] * len(datos1), s=50, label="Datos Predichos", alpha=0.5)
+    plt.scatter(datos2, np.repeat(0, len(datos2)), c=[colores['B']] * len(datos2), s=50, label="Datos Después del salto", alpha=0.5)
+    plt.xlabel("Unidades de ciclo")
+    plt.title("Comparación de dos grupos de datos")
+    plt.yticks([])
+    plt.grid(True)
+    plt.legend()
+    plt.show()
+
+def calcular_u_test(datos1, datos2):
+    _, p_value = mannwhitneyu(datos1, datos2)
+    if p_value < 0.05:
+        print("Hay una diferencia significativa entre los grupos.")
+    else:
+        print("No se encontró una diferencia significativa entre los grupos.")
+
+    print(p_value)
+
+def obtener_claves_por_valor(diccionario, valor):
+    claves = []
+    
+    for i in valor:
+        for clave, v in diccionario.items():
+            if v == i:
+                claves.append(clave)
+    return claves
+
+def graficar_datos(claves1, datos1 , claves2, datos2):
+    plt.plot(claves1,datos1, 'r.')
+    plt.plot(claves2,datos2, 'b.')
+    plt.show()
+    
+    
+def modelo_regresion(X, y):
+    modelo = LinearRegression()
+    modelo.fit(X, y)
+    return modelo
+
+def predecir_valor(modelo, datos):
+    return modelo.predict(datos)
+
+
+def aplicacion(tiempos_conocidos, valores_conocidos, tiempos_prediccion,valores_sabidos,tiempo=30):
+        
+    tiempos_conocidos = [i*tiempo for i in tiempos_conocidos]
+    tiempos_prediccion = [i*tiempo for i in tiempos_prediccion]
+    modelo = modelo_regresion([[t] for t in tiempos_conocidos], valores_conocidos)
+    valores_predichos = predecir_valor(modelo, [[t] for t in tiempos_prediccion])
+    
+    scatter_plot_grupos(valores_predichos, valores_sabidos)
+    calcular_u_test(valores_predichos, valores_sabidos)
+
+    plt.plot(tiempos_prediccion, valores_predichos, 'ro',label = "Datos Predichos")
+    plt.plot(tiempos_prediccion, valores_sabidos, 'bo', label = "Datos Después del salto")
+    xticks = [int(t) for t in tiempos_prediccion[::2]]
+
+    plt.xticks(tiempos_prediccion[::2], xticks)
+    plt.xlabel("Tiempo en segundos")
+    plt.ylabel("Unidades de ciclo")
+    plt.title("Test de Mann-Whitney-Wilcoxon")
+    plt.legend()
+
+    plt.show()
